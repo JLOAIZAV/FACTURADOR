@@ -1,0 +1,29 @@
+def calcular_total_factura(subtotal_12, subtotal_0, descuento):
+    total_12 = subtotal_12 * 0.12
+    total_0 = subtotal_0
+    total_sin_descuento = total_12 + total_0
+    descuento_aplicado = total_sin_descuento * (descuento / 100)
+    total_con_descuento = total_sin_descuento - descuento_aplicado
+    return total_con_descuento
+
+def main():
+    print("Bienvenido al sistema de cálculo de facturas")
+
+    ruc_emisor = input("INGRESE EL RUC DEL EMISOR (13 dígitos): ")
+    codigo_factura = input("INSERTE CODIGO DE FACTURA(15 dígitos): ")
+    subtotal_12 = float(input("INSERTE EL SUBTOTAL 12% (productos con IVA 12%): "))
+    subtotal_0 = float(input("INSERTE EL SUBTOTAL 0% (productos sin IVA): "))
+    descuento = float(input("CUANTO DESEA DESCONTAR EL COMERCIAL: "))
+
+    total_factura = calcular_total_factura(subtotal_12, subtotal_0, descuento)
+
+    print("\nResumen de la factura:")
+    print(f"RUC del emisor: {ruc_emisor}")
+    print(f"Código de la factura: {codigo_factura}")
+    print(f"Subtotal 12%: {subtotal_12:.2f}")
+    print(f"Subtotal 0%: {subtotal_0:.2f}")
+    print(f"Porcentaje de Descuento Comercial: {descuento}%")
+    print(f"Total a facturar con descuento: {total_factura:.2f}")
+
+if __name__ == "__main__":
+    main()
